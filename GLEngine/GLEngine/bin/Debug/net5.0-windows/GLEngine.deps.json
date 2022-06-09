@@ -1,0 +1,61 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "GLEngine/1.0.0": {
+        "dependencies": {
+          "OpenGL.Net.Math_net461": "1.0.0",
+          "OpenGL.Net.WinForms_net461": "1.0.0",
+          "OpenGL.Net_net461": "1.0.0"
+        },
+        "runtime": {
+          "GLEngine.dll": {}
+        }
+      },
+      "OpenGL.Net.Math_net461/1.0.0": {
+        "runtime": {
+          "OpenGL.Net.Math.dll": {}
+        }
+      },
+      "OpenGL.Net.WinForms_net461/1.0.0": {
+        "dependencies": {
+          "OpenGL.Net_net461": "1.0.0"
+        },
+        "runtime": {
+          "OpenGL.Net.WinForms.dll": {}
+        }
+      },
+      "OpenGL.Net_net461/1.0.0": {
+        "runtime": {
+          "OpenGL.Net.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GLEngine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenGL.Net.Math_net461/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenGL.Net.WinForms_net461/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenGL.Net_net461/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
