@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net461.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_net461.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj" />
+  </ItemGroup>
+
+</Project>
