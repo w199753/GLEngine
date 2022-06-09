@@ -6064,6 +6064,16 @@ namespace OpenGL
 		ArrayBufferBinding = Gl.ARRAY_BUFFER_BINDING,
 
 		/// <summary>
+		/// Strongly typed for value GL_ARRAY_BUFFER_BINDING.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		//[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		ColorArrayBufferBinding = Gl.COLOR_ARRAY_BUFFER_BINDING,
+
+		/// <summary>
 		/// Strongly typed for value GL_ASYNC_DRAW_PIXELS_SGIX.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_async_pixel")]

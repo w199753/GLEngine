@@ -9,9 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ImGUI\ImGui.NET\ImGui.NET.csproj" />
+    <ProjectReference Include="..\ImGUI\ImPlot.NET\ImPlot.NET.csproj" />
     <ProjectReference Include="..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net461.csproj" />
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_net461.csproj" />
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!--<Content Include="$(RepositoryRootDirectory)/deps/cimgui/win-x64/cimgui.dll" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="$(RepositoryRootDirectory)/deps/cimgui/osx/cimgui.dylib" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="$(RepositoryRootDirectory)/deps/cimgui/linux-x64/cimgui.so" CopyToOutputDirectory="PreserveNewest" />-->
+    <Content Include="../ImGUI/deps/cimgui/win-x64/cimgui.dll" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../ImGUI/deps/cimgui/osx/cimgui.dylib" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../ImGUI/deps/cimgui/linux-x64/cimgui.so" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  
 </Project>

@@ -48,6 +48,9 @@
 			this.RenderControl.ContextDestroying += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextDestroying);
 			this.RenderControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_Render);
 			this.RenderControl.ContextUpdate += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextUpdate);
+			//this.RenderControl.Paint += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextPaint);
+			this.RenderControl.Paint += new System.Windows.Forms.PaintEventHandler(this.RenderControl_ContextPaint);
+
 			// 
 			// SampleForm
 			// 
