@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Khronos;
 
 namespace GLEngine
 {
@@ -25,11 +26,13 @@ namespace GLEngine
             AllocConsole();
             string envDebug = Environment.GetEnvironmentVariable("DEBUG");
             Console.WriteLine(envDebug);
-            //if (envDebug == "GL") {
-            //	KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
-            //		Console.WriteLine(e.ToString());
-            //	};
-            //	KhronosApi.LogEnabled = true;
+            //if (envDebug == "GL")
+            //{
+            //    Khronos.KhronosApi.Log += delegate (object sender, Khronos.KhronosLogEventArgs e)
+            //    {
+            //        Console.WriteLine(e.ToString());
+            //    };
+            //    Khronos.KhronosApi.LogEnabled = true;
             //}
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();

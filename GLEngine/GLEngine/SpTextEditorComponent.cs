@@ -97,6 +97,7 @@ namespace GLEngine
 
         protected override void WndProc(ref Message m)
         {
+            //Console.WriteLine("fzy aaa");
             switch (m.Msg)
             {
                 case WM_IME_SETCONTEXT:
