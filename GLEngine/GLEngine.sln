@@ -32,6 +32,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImNodes.NET", "ImGUI\ImNode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImPlot.NET", "ImGUI\ImPlot.NET\ImPlot.NET.csproj", "{1204A80E-1632-4B95-8BC2-BF38E97F241D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duality", "Duality\Duality.csproj", "{845DC894-E337-43A7-B270-FCE0ECB64F86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DualityPrimitives", "Primitives\DualityPrimitives.csproj", "{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Khronos.Net\Khronos.Net.projitems*{6ce61c1e-e93a-404a-89b7-1e8ea3baf663}*SharedItemsImports = 4
@@ -179,6 +183,30 @@ Global
 		{1204A80E-1632-4B95-8BC2-BF38E97F241D}.Release|x64.Build.0 = Release|Any CPU
 		{1204A80E-1632-4B95-8BC2-BF38E97F241D}.Release|x86.ActiveCfg = Release|Any CPU
 		{1204A80E-1632-4B95-8BC2-BF38E97F241D}.Release|x86.Build.0 = Release|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Debug|x64.Build.0 = Debug|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Debug|x86.Build.0 = Debug|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Release|x64.ActiveCfg = Release|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Release|x64.Build.0 = Release|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Release|x86.ActiveCfg = Release|Any CPU
+		{845DC894-E337-43A7-B270-FCE0ECB64F86}.Release|x86.Build.0 = Release|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Debug|x64.Build.0 = Debug|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Debug|x86.Build.0 = Debug|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Release|x64.ActiveCfg = Release|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Release|x64.Build.0 = Release|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Release|x86.ActiveCfg = Release|Any CPU
+		{496A7C4C-BAE4-4952-AD11-EDF4C0469F04}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
