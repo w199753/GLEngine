@@ -60,16 +60,15 @@
             // RenderControl
             // 
             this.RenderControl.Animation = true;
-            this.RenderControl.AnimationTimer = false;
             this.RenderControl.BackColor = System.Drawing.Color.DimGray;
             this.RenderControl.ColorBits = ((uint)(24u));
             this.RenderControl.DepthBits = ((uint)(0u));
             this.RenderControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RenderControl.Location = new System.Drawing.Point(0, 24);
+            this.RenderControl.Location = new System.Drawing.Point(0, 49);
             this.RenderControl.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.RenderControl.MultisampleBits = ((uint)(0u));
             this.RenderControl.Name = "RenderControl";
-            this.RenderControl.Size = new System.Drawing.Size(853, 536);
+            this.RenderControl.Size = new System.Drawing.Size(853, 511);
             this.RenderControl.StencilBits = ((uint)(0u));
             this.RenderControl.TabIndex = 0;
             this.RenderControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextCreated);
@@ -78,10 +77,10 @@
             this.RenderControl.ContextUpdate += new System.EventHandler<OpenGL.GlControlEventArgs>(this.RenderControl_ContextUpdate);
             this.RenderControl.Paint += new System.Windows.Forms.PaintEventHandler(this.RenderControl_ContextPaint);
             // 
-            // menuStrip
+            // mainMenuStrip
             // 
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuStrip.Name = "menuStrip1";
+            this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(853, 24);
             this.mainMenuStrip.TabIndex = 1;
             this.mainMenuStrip.Text = "menuStrip1";
@@ -142,18 +141,16 @@
             this.selectFormattingMethod});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
-            this.mainToolStrip.Size = new System.Drawing.Size(916, 25);
+            this.mainToolStrip.Size = new System.Drawing.Size(853, 25);
             this.mainToolStrip.TabIndex = 4;
             // 
             // actionSaveAll
             // 
             this.actionSaveAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionSaveAll.Image = global::Duality.Editor.Properties.Resources.disk_multiple;
             this.actionSaveAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionSaveAll.Name = "actionSaveAll";
             this.actionSaveAll.Size = new System.Drawing.Size(23, 22);
             this.actionSaveAll.Text = "Save All";
-            //this.actionSaveAll.Click += new System.EventHandler(this.actionSaveAll_Click);
             // 
             // toolStripSeparator1
             // 
@@ -163,12 +160,10 @@
             // actionOpenCode
             // 
             this.actionOpenCode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionOpenCode.Image = global::Duality.Editor.Properties.Resources.page_white_csharp;
             this.actionOpenCode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionOpenCode.Name = "actionOpenCode";
             this.actionOpenCode.Size = new System.Drawing.Size(23, 22);
             this.actionOpenCode.Text = "Open Sourcecode";
-            //this.actionOpenCode.Click += new System.EventHandler(this.actionOpenCode_Click);
             // 
             // toolStripSeparator2
             // 
@@ -178,22 +173,18 @@
             // actionRunApp
             // 
             this.actionRunApp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionRunApp.Image = global::Duality.Editor.Properties.Resources.application_go;
             this.actionRunApp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionRunApp.Name = "actionRunApp";
             this.actionRunApp.Size = new System.Drawing.Size(23, 22);
             this.actionRunApp.Text = "Run Game";
-            //this.actionRunApp.Click += new System.EventHandler(this.actionRunApp_Click);
             // 
             // actionDebugApp
             // 
             this.actionDebugApp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionDebugApp.Image = global::Duality.Editor.Properties.Resources.application_bug;
             this.actionDebugApp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionDebugApp.Name = "actionDebugApp";
             this.actionDebugApp.Size = new System.Drawing.Size(23, 22);
             this.actionDebugApp.Text = "Debug Game";
-            //this.actionDebugApp.Click += new System.EventHandler(this.actionDebugApp_Click);
             // 
             // toolStripSeparator3
             // 
@@ -204,49 +195,41 @@
             // 
             this.actionRunSandbox.AutoToolTip = false;
             this.actionRunSandbox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionRunSandbox.Image = global::Duality.Editor.Properties.Resources.control_play_blue;
             this.actionRunSandbox.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionRunSandbox.Name = "actionRunSandbox";
             this.actionRunSandbox.Size = new System.Drawing.Size(23, 22);
             this.actionRunSandbox.Text = "Play";
             this.actionRunSandbox.ToolTipText = "Enter Sandbox mode";
-            //this.actionRunSandbox.Click += new System.EventHandler(this.actionRunSandbox_Click);
             // 
             // actionStepSandbox
             // 
             this.actionStepSandbox.AutoToolTip = false;
             this.actionStepSandbox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionStepSandbox.Image = global::Duality.Editor.Properties.Resources.control_step_blue;
             this.actionStepSandbox.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionStepSandbox.Name = "actionStepSandbox";
             this.actionStepSandbox.Size = new System.Drawing.Size(23, 22);
             this.actionStepSandbox.Text = "Step Frame";
             this.actionStepSandbox.ToolTipText = "Process one Frame";
-            //this.actionStepSandbox.Click += new System.EventHandler(this.actionStepSandbox_Click);
             // 
             // actionPauseSandbox
             // 
             this.actionPauseSandbox.AutoToolTip = false;
             this.actionPauseSandbox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionPauseSandbox.Image = global::Duality.Editor.Properties.Resources.control_pause_blue;
             this.actionPauseSandbox.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionPauseSandbox.Name = "actionPauseSandbox";
             this.actionPauseSandbox.Size = new System.Drawing.Size(23, 22);
             this.actionPauseSandbox.Text = "Pause";
             this.actionPauseSandbox.ToolTipText = "Pause the Sandbox";
-            //this.actionPauseSandbox.Click += new System.EventHandler(this.actionPauseSandbox_Click);
             // 
             // actionStopSandbox
             // 
             this.actionStopSandbox.AutoToolTip = false;
             this.actionStopSandbox.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.actionStopSandbox.Image = global::Duality.Editor.Properties.Resources.control_stop_blue;
             this.actionStopSandbox.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.actionStopSandbox.Name = "actionStopSandbox";
             this.actionStopSandbox.Size = new System.Drawing.Size(23, 22);
             this.actionStopSandbox.Text = "Stop";
             this.actionStopSandbox.ToolTipText = "Leave Sandbox mode";
-            //this.actionStopSandbox.Click += new System.EventHandler(this.actionStopSandbox_Click);
             // 
             // splitButtonBackupSettings
             // 
@@ -255,22 +238,18 @@
             this.splitButtonBackupSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkBackups,
             this.menuAutosave});
-            //this.splitButtonBackupSettings.Image = global::Duality.Editor.Properties.Resources.drive_disk;
             this.splitButtonBackupSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.splitButtonBackupSettings.Name = "splitButtonBackupSettings";
-            this.splitButtonBackupSettings.Size = new System.Drawing.Size(32, 22);
+            this.splitButtonBackupSettings.Size = new System.Drawing.Size(16, 22);
             this.splitButtonBackupSettings.Text = "Backup Settings";
-            //this.splitButtonBackupSettings.DropDownOpening += new System.EventHandler(this.splitButtonBackupSettings_DropDownOpening);
-            //this.splitButtonBackupSettings.Click += new System.EventHandler(this.splitButtonBackupSettings_Click);
             // 
             // checkBackups
             // 
             this.checkBackups.Checked = true;
             this.checkBackups.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBackups.Name = "checkBackups";
-            this.checkBackups.Size = new System.Drawing.Size(123, 22);
+            this.checkBackups.Size = new System.Drawing.Size(129, 22);
             this.checkBackups.Text = "Backups";
-            //this.checkBackups.Click += new System.EventHandler(this.checkBackups_Clicked);
             // 
             // menuAutosave
             // 
@@ -280,49 +259,43 @@
             this.optionAutosaveThirtyMinutes,
             this.optionAutoSaveOneHour});
             this.menuAutosave.Name = "menuAutosave";
-            this.menuAutosave.Size = new System.Drawing.Size(123, 22);
+            this.menuAutosave.Size = new System.Drawing.Size(129, 22);
             this.menuAutosave.Text = "Autosave";
             // 
             // optionAutosaveDisabled
             // 
             this.optionAutosaveDisabled.Name = "optionAutosaveDisabled";
-            this.optionAutosaveDisabled.Size = new System.Drawing.Size(132, 22);
+            this.optionAutosaveDisabled.Size = new System.Drawing.Size(140, 22);
             this.optionAutosaveDisabled.Text = "Disabled";
-            //this.optionAutosaveDisabled.Click += new System.EventHandler(this.optionAutosaveDisabled_Clicked);
             // 
             // optionAutosaveTenMinutes
             // 
             this.optionAutosaveTenMinutes.Name = "optionAutosaveTenMinutes";
-            this.optionAutosaveTenMinutes.Size = new System.Drawing.Size(132, 22);
+            this.optionAutosaveTenMinutes.Size = new System.Drawing.Size(140, 22);
             this.optionAutosaveTenMinutes.Text = "10 Minutes";
-            //this.optionAutosaveTenMinutes.Click += new System.EventHandler(this.optionAutosaveTenMinutes_Clicked);
             // 
             // optionAutosaveThirtyMinutes
             // 
             this.optionAutosaveThirtyMinutes.Checked = true;
             this.optionAutosaveThirtyMinutes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.optionAutosaveThirtyMinutes.Name = "optionAutosaveThirtyMinutes";
-            this.optionAutosaveThirtyMinutes.Size = new System.Drawing.Size(132, 22);
+            this.optionAutosaveThirtyMinutes.Size = new System.Drawing.Size(140, 22);
             this.optionAutosaveThirtyMinutes.Text = "30 Minutes";
-            //this.optionAutosaveThirtyMinutes.Click += new System.EventHandler(this.optionAutosaveThirtyMinutes_Clicked);
             // 
             // optionAutoSaveOneHour
             // 
             this.optionAutoSaveOneHour.Name = "optionAutoSaveOneHour";
-            this.optionAutoSaveOneHour.Size = new System.Drawing.Size(132, 22);
+            this.optionAutoSaveOneHour.Size = new System.Drawing.Size(140, 22);
             this.optionAutoSaveOneHour.Text = "1 Hour";
-            //this.optionAutoSaveOneHour.Click += new System.EventHandler(this.optionAutoSaveOneHour_Clicked);
             // 
             // selectFormattingMethod
             // 
             this.selectFormattingMethod.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.selectFormattingMethod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            //this.selectFormattingMethod.Image = ((System.Drawing.Image)(resources.GetObject("selectFormattingMethod.Image")));
             this.selectFormattingMethod.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.selectFormattingMethod.Name = "selectFormattingMethod";
-            this.selectFormattingMethod.Size = new System.Drawing.Size(32, 22);
+            this.selectFormattingMethod.Size = new System.Drawing.Size(16, 22);
             this.selectFormattingMethod.Text = "Project Data Format";
-            //this.selectFormattingMethod.Click += new System.EventHandler(this.selectFormattingMethod_Click);
             // 
             // MainForm
             // 
@@ -330,11 +303,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 560);
             this.Controls.Add(this.RenderControl);
+            this.Controls.Add(this.mainToolStrip);
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.Text = "Hello triangle";
+            this.mainToolStrip.ResumeLayout(false);
+            this.mainToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
