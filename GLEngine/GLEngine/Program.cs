@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Khronos;
+using GLEngine.Config;
 
 namespace GLEngine
 {
@@ -34,6 +35,8 @@ namespace GLEngine
             //    };
             //    Khronos.KhronosApi.LogEnabled = true;
             //}
+            EngineConfigLoader.InitConfig();
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -34,6 +34,7 @@ using AdamsLair.WinForms.ItemViews;
 using Duality.Editor.Properties;
 using Duality.Editor;
 using GLEngine.Properties;
+using GLEngine.Config;
 
 namespace GLEngine
 {
@@ -97,13 +98,13 @@ namespace GLEngine
 			MenuModelItem helpItem;
 			this.mainMenuModel.AddItems(new[]
 			{
-				new MenuModelItem { Name = GeneralRes.MenuName_File, SortValue = MenuModelItem.SortValue_Top, Items = new[]
+				new MenuModelItem { Name = ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuName_File), SortValue = MenuModelItem.SortValue_Top, Items = new[]
 				{
 					new MenuModelItem
 					{
-						Name            = GeneralRes.MenuItemName_PublishGame,
+						Name            = ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuItemName_PublishGame),
 						SortValue       = MenuModelItem.SortValue_Top,
-						Tag             = HelpInfo.FromText(GeneralRes.MenuItemName_PublishGame, GeneralRes.MenuItemInfo_PublishGame),
+						Tag             = HelpInfo.FromText(ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuItemName_PublishGame), GeneralRes.MenuItemInfo_PublishGame),
 						//ActionHandler   = this.actionPublishGame_Click
 					},
 					new MenuModelItem
@@ -117,7 +118,7 @@ namespace GLEngine
 						Name            = this.actionSaveAll.Text,
 						Icon            = this.actionSaveAll.Image,
 						ShortcutKeys    = Keys.Control | Keys.S,
-						Tag             = HelpInfo.FromText(this.actionSaveAll.Text, GeneralRes.MenuItemInfo_SaveAll),
+						Tag             = HelpInfo.FromText(this.actionSaveAll.Text, ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuItemInfo_SaveAll)),
 						//ActionHandler   = this.actionSaveAll_Click
 					},
 					new MenuModelItem
@@ -146,26 +147,26 @@ namespace GLEngine
 						//ActionHandler   = this.quitItem_Click
 					}
 				}},
-				new MenuModelItem { Name = GeneralRes.MenuName_Edit, SortValue = MenuModelItem.SortValue_Top, Items = new[]
+				new MenuModelItem { Name = ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuName_Edit), SortValue = MenuModelItem.SortValue_Top, Items = new[]
 				{
 					this.menuEditUndo = new MenuModelItem
 					{
-						Name            = GeneralRes.MenuItemName_Undo,
+						Name            = ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuItemName_Undo),
 						SortValue       = MenuModelItem.SortValue_Top,
 						Icon            = GeneralResCache.arrow_undo,
-						ShortcutKeys    = Keys.Z | Keys.Control,
+						//ShortcutKeys    = Keys.Z | Keys.Control,
 						//ActionHandler   = this.menuEditUndo_Click
 					},
 					this.menuEditRedo = new MenuModelItem
 					{
-						Name            = GeneralRes.MenuItemName_Redo,
+						Name            = ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuItemName_Redo),
 						SortValue       = MenuModelItem.SortValue_Top,
 						Icon            = GeneralResCache.arrow_redo,
-						ShortcutKeys    = Keys.Y | Keys.Control,
+						//ShortcutKeys    = Keys.Y | Keys.Control,
 						//ActionHandler   = this.menuEditRedo_Click
 					}
 				}},
-				new MenuModelItem { Name = GeneralRes.MenuName_Run, SortValue = MenuModelItem.SortValue_OverBottom, Items = new[]
+				new MenuModelItem { Name = ConfigRoot.Editor_Window_Conf.GetText(ConfigKey.MenuName_Run), SortValue = MenuModelItem.SortValue_OverBottom, Items = new[]
 				{
 					this.menuRunApp = new MenuModelItem
 					{
@@ -286,6 +287,7 @@ namespace GLEngine
 
 			this.serializerMenuModel.AddItems(new[]
 			{
+				//分隔符Item
 				new MenuModelItem
 				{
 					Name            = "BottomSeparator",
@@ -355,7 +357,7 @@ namespace GLEngine
 					if (Gl.CurrentVersion >= Gl.Version_320)
 						RenderControl_CreateGL320();
 					else
-						RenderControl_CreateGL100();
+						Console.WriteLine("not support immediate mode");
 					break;
 				case KhronosVersion.ApiGles2:
 					RenderControl_CreateGLES2();
@@ -384,10 +386,8 @@ namespace GLEngine
 				case KhronosVersion.ApiGl:
 					if (Gl.CurrentVersion >= Gl.Version_320)
 						RenderControl_RenderGL320();
-					else if (Gl.CurrentVersion >= Gl.Version_110)
-						RenderControl_RenderGL110();
 					else
-						RenderControl_RenderGL100();
+						Console.WriteLine("not support immediate mode");
 					break;
 				case KhronosVersion.ApiGles2:
 					RenderControl_RenderGLES2();
@@ -438,101 +438,6 @@ namespace GLEngine
 			}
 
 			Console.WriteLine($"{source}, {type}, {severity}: {strMessage}");
-		}
-
-		#endregion
-
-
-		#region Immediate Mode
-
-		// Note: this methods are written for didactic purposes; they use old fixed pipeline methods, and
-		// should be used.
-
-		/// <summary>
-		/// Setup GL state for OpenGL 1.1/1.0.
-		/// </summary>
-		private void RenderControl_CreateGL100()
-		{
-			// Setup projection matrix, only once since it remains fixed for the application lifetime
-
-			// Projection matrix selector
-			Gl.MatrixMode(MatrixMode.Projection);
-			// Load (reset) to identity
-			Gl.LoadIdentity();
-			// Multiply with orthographic projection
-			Gl.Ortho(0.0, 1.0, 0.0, 1.0, 0.0, 1.0);
-		}
-
-		/// <summary>
-		/// Old school OpenGL 1.0 drawing.
-		/// </summary>
-		private void RenderControl_RenderGL100()
-		{
-			// Setup model-view matrix
-
-			// Model-view matrix selector
-			Gl.MatrixMode(MatrixMode.Modelview);
-			// Load (reset) to identity
-			Gl.LoadIdentity();
-			// Multiply with rotation matrix (around Z axis)
-			Gl.Rotate(_Angle, 0.0f, 0.0f, 1.0f);
-
-			// Draw triangle using immediate mode (8 draw call)
-
-			// Start drawing triangles
-			Gl.Begin(PrimitiveType.Triangles);
-
-			// Feed triangle data: color and position
-			// Note: vertex attributes (color, texture coordinates, ...) are specified before position information
-			// Note: vertex data is passed using method calls (performance killer!)
-			Gl.Color3(1.0f, 0.0f, 0.0f); Gl.Vertex2(0.0f, 0.0f);
-			Gl.Color3(0.0f, 1.0f, 0.0f); Gl.Vertex2(0.5f, 1.0f);
-			Gl.Color3(0.0f, 0.0f, 1.0f); Gl.Vertex2(1.0f, 0.0f);
-
-			// Triangles ends
-			Gl.End();
-		}
-
-		/// <summary>
-		/// Old school OpenGL 1.1 drawing.
-		/// </summary>
-		private void RenderControl_RenderGL110()
-		{
-			// Setup model-view matrix (as previously)
-
-			// Model-view matrix selector
-			Gl.MatrixMode(MatrixMode.Modelview);
-			// Load (reset) to identity
-			Gl.LoadIdentity();
-			// Multiply with rotation matrix (around Z axis)
-			Gl.Rotate(_Angle, 0.0f, 0.0f, 1.0f);
-
-			// Draw triangle using immediate mode
-
-			// Setup & enable client states to specify vertex arrays, and use Gl.DrawArrays instead of Gl.Begin/End paradigm
-			using (MemoryLock vertexArrayLock = new MemoryLock(_ArrayPosition))
-			using (MemoryLock vertexColorLock = new MemoryLock(_ArrayColor))
-			{
-				// Note: the use of MemoryLock objects is necessary to pin vertex arrays since they can be reallocated by GC
-				// at any time between the Gl.VertexPointer execution and the Gl.DrawArrays execution
-
-				// Set current client memory pointer for position: a vertex of 2 floats
-				Gl.VertexPointer(2, VertexPointerType.Float, 0, vertexArrayLock.Address);
-				// Position is used for drawing
-				Gl.EnableClientState(EnableCap.VertexArray);
-
-				// Set current client memory pointer for color: a vertex of 3 floats
-				Gl.ColorPointer(3, ColorPointerType.Float, 0, vertexColorLock.Address);
-				// Color is used for drawing
-				Gl.EnableClientState(EnableCap.ColorArray);
-
-				// Note: enabled client state and client memory pointers are a GL state, and theorically they could be
-				// set only at creation time. However, memory should be pinned for application lifetime.
-
-				// Start drawing triangles (3 vertices -> 1 triangle)
-				// Note: vertex attributes are streamed from client memory to GPU
-				Gl.DrawArrays(PrimitiveType.Triangles, 0, 3);
-			}
 		}
 
 		#endregion

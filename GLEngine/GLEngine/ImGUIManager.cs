@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,17 +27,25 @@ namespace GLEngine
             ImGui.SetCurrentContext(context);
             var fonts = ImGui.GetIO().Fonts;
             ImGui.GetIO().Fonts.AddFontDefault();
+
+            ImGui.GetIO().ConfigFlags |= ImGuiConfigFlags.DockingEnable;
             ImGui.GetIO().BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             ImGui.StyleColorsLight();
 
             createFontsTexture();
             SetKeyMappings();
+            SetPerFrameImGuiData(1f / 60f);
             createDeviceObjects();
 
             setStyle();
 
         }
-
+        private void SetPerFrameImGuiData(float deltaSeconds)
+        {
+            ImGuiIOPtr io = ImGui.GetIO();
+            io.DisplayFramebufferScale = Vector2.One;
+            io.DeltaTime = deltaSeconds; // DeltaTime is in seconds.
+        }
 
         private void SetKeyMappings()
         {
@@ -132,9 +141,21 @@ namespace GLEngine
 
                 //io.AddInputCharacter((uint)e.KeyValue);
             }
-            io.KeyAlt = e.Alt;
-            io.KeyCtrl = e.Control;
-            io.KeyShift = e.Shift;
+            if(e.KeyCode == Keys.Alt)
+            {
+                io.KeyAlt = true;
+            }
+            if (e.KeyCode == Keys.ControlKey)
+            {
+
+                io.KeyCtrl = true;
+            }
+            if (e.KeyCode == Keys.Shift)
+            {
+                io.KeyShift = true;
+            }
+
+            Console.WriteLine("fzy k:" + io.KeyCtrl + "   " + (int)e.KeyCode + "   " + e.KeyCode.ToString()+"   "+e.KeyValue);
             DrawRequested?.Invoke(this, null);
         }
 
@@ -148,9 +169,21 @@ namespace GLEngine
             var io = ImGui.GetIO();
             if (e.KeyValue < 256)
                 io.KeysDown[e.KeyValue] = false;
-            io.KeyAlt = e.Alt;
-            io.KeyCtrl = e.Control;
-            io.KeyShift = e.Shift;
+            //io.KeyAlt = e.Alt;
+            //io.KeyCtrl = e.Control;
+            //io.KeyShift = e.Shift;
+            if (e.KeyCode == Keys.Alt)
+            {
+                io.KeyAlt = false;
+            }
+            if (e.KeyCode == Keys.ControlKey)
+            {
+                io.KeyCtrl = false;
+            }
+            if (e.KeyCode == Keys.Shift)
+            {
+                io.KeyShift = false;
+            }
             DrawRequested?.Invoke(this, null);
         }
         private void Glc_SizeChanged(object sender, EventArgs e)
@@ -406,7 +439,7 @@ namespace GLEngine
         private bool show_another_window = false;
         //日本語グリフの文字コードリスト
         private IntPtr japaneseGlyph;
-
+        
         System.Numerics.Vector3 clear_color = new System.Numerics.Vector3(0.45f, 0.55f, 0.60f);
         public void ImDraw()
         {
@@ -414,6 +447,46 @@ namespace GLEngine
             // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
             if (show_demo_window)
                 ImGui.ShowDemoWindow();
+            {
+                ImGui.PushStyleVar(ImGuiStyleVar.WindowPadding, new Vector2(0.0f, 0.0f));
+                ImGui.Begin("Hierarchy");
+
+                if (ImGui.CollapsingHeader("133", ImGuiTreeNodeFlags.OpenOnArrow))
+                {
+                    
+                    //ImGui.TreePop();
+                    //ImGui.Separator();
+                    ImGui.TreePush();
+
+                    if (ImGui.CollapsingHeader("32", ImGuiTreeNodeFlags.OpenOnArrow))
+                    {
+                        
+                    }
+
+                    if (ImGui.CollapsingHeader("3256", ImGuiTreeNodeFlags.OpenOnArrow))
+                    {
+
+                    }
+                    ImGui.TreePop();
+                }
+                ImGui.ShowStyleEditor();
+                ImGui.TreePop();
+                var dockspace_flags = ImGuiDockNodeFlags.None;
+                var io = ImGui.GetIO();
+                ImGui.PopStyleVar();
+
+
+                if ((io.ConfigFlags & ImGuiConfigFlags.DockingEnable) == ImGuiConfigFlags.DockingEnable)
+                {
+                    var dockspace_id = ImGui.GetID("MyDockSpace");
+                    
+                    //x.DockingAlwaysTabBar = false;
+                    
+                    ImGui.DockSpace(dockspace_id, new Vector2(0.0f, 0.0f), dockspace_flags);
+                }
+
+                ImGui.End();
+            }
             // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
             {
                 ImGui.Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
@@ -643,6 +716,10 @@ namespace GLEngine
         {
             //Console.WriteLine("fzy aaa:" + e.KeyChar);
             var io = ImGui.GetIO();
+            //io.KeyCtrl = true;
+            //io.KeyAlt = e.Alt;
+            //io.KeyCtrl = e.Control;
+            //io.KeyShift = e.Shift;
             io.AddInputCharacter(e.KeyChar);
         }
     }
